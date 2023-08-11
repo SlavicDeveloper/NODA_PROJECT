@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+    <div class="header">
+        <div class="header__section">
+            <div class="header__item headerlogo">
+                <img src="{% static 'main/css/img/logo.png' %}" alt="Лого">
+            </div>
+            <div class="header__item headerButton"><a href="#"></a></div>
+        </div>
+        <div class="header__section">
+            <div class="header__item headerButton"><a href="#">Вход</a></div>
+        </div>
+    </div>
+    {% block content %}
+    {% endblock %}
+    <main>
+        <div class="sidebar">
+            <div class="sidebar__section">
+                <div class="sidebar__item"><a href="#">Туториал</a></div>
+                <div class="sidebar__item"><a href="#">База Данных</a></div>
+                <div class="sidebar__item"><a href="#">Мероприятия</a></div>
+                <div class="sidebar__item"><a href="#">RIP</a></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+    <p class="description">Контакты: info@example.com</p>
+    <p class="description">Дополнительная информация</p>
+  </footer>
+</body>
+</html>

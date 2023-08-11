@@ -1,0 +1,13 @@
+{% extends 'main/base_index.html' %}
+{% block content %}
+    <h1>База данных "МОДА"</h1>
+    {% if notes %}
+        <ul>
+            {% for note in notes %}
+            <li>
+                {{note.doc_name}} - <a href="{{note.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
