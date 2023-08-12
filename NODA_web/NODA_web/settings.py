@@ -55,7 +55,7 @@ ROOT_URLCONF = 'NODA_web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'NODA',
         'USER': 'postgres',
-        'PASSWORD': 'Berserk201620172018',
+        'PASSWORD': '74741201',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -110,13 +110,29 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
 USE_TZ = True
+
+
+
+# Redirect to home URL after login (Default redirects to /accounts/profile/)
+LOGIN_REDIRECT_URL = '/'
+
+# Add to test email:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+
+EMAIL_HOST_USER = 'NODA-T-NODA@yandex.ru'
+EMAIL_HOST_PASSWORD = 'eouelrzrnnhoklye'
+DEFAULT_FORM_EMAIL = 'NODA-T-NODA@yandex.ru'
 
 
 # Static files (CSS, JavaScript, Images)
