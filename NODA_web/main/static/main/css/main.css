@@ -78,3 +78,7 @@ footer {
 .btn a{
     color: #000000;
 }
+
+.form-error {
+    color: 	#FFA07A;
+}
