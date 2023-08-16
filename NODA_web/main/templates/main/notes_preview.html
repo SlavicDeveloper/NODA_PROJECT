@@ -1,13 +1,54 @@
 {% extends 'main/base_index.html' %}
 {% block content %}
     <h1>База данных "МОДА"</h1>
-    {% if notes %}
-        <ul>
-            {% for note in notes %}
-            <li>
-                {{note.doc_name}} - <a href="{{note.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a>
-            </li>
-            {% endfor %}
-        </ul>
+    {% if soc %}
+        <h2>Социальные науки</h2>
+            <ul>
+                {% for el in soc %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    {% if gum %}
+        <h2>Гуманитарные науки</h2>
+            <ul>
+                {% for el in gum %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    {% if est %}
+        <h2>Естественные и точные науки</h2>
+            <ul>
+                {% for el in est %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    {% if med %}
+        <h2>Медицинские науки</h2>
+            <ul>
+                {% for el in med %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    {% if tech %}
+        <h2>Технологии и техника</h2>
+            <ul>
+                {% for el in tech %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
+    {% endif %}
+    {% if selhoz %}
+        <h2>Сельскохозяйственные науки</h2>
+            <ul>
+                {% for el in selhoz %}
+                    {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
+                {% endfor %}
+            </ul>
     {% endif %}
 {% endblock %}
+
+

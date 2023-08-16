@@ -1,15 +1,16 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
-from django.utils.html import format_html
+from django.contrib.auth.models import User
+
 
 MEDIA_URL = "media/uploads"
 
 
 # Create your models here.
-class User(models.Model):
-    id = models.AutoField(primary_key=True)
-    user_name = models.CharField(max_length=50, blank=False)
-    notes_created = models.IntegerField("amount_of_notes_posted", default=0)
+# class User(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     user_name = models.CharField(max_length=50, blank=False)
+#     notes_created = models.IntegerField("amount_of_notes_posted", default=0)
 
 
 class Notes(models.Model):
@@ -18,6 +19,23 @@ class Notes(models.Model):
     doc_file = models.FileField("docx_format_field",
                                 validators=[FileExtensionValidator(allowed_extensions=['doc', 'docx'])],
                                 upload_to="uploads", max_length=200)
+
+    CATEGORY_STATUS = (
+        ('soc', 'Социальные науки'),
+        ('gum', 'Гуманитарные науки'),
+        ('est', 'Естественные и точные науки'),
+        ('med', 'Медицинские науки'),
+        ('tech', 'Техника и технологии'),
+        ('selhoz', 'Сельскохозяйственные науки')
+    )
+
+    category_status = models.CharField(
+        max_length=255,
+        choices=CATEGORY_STATUS,
+        blank=True,
+        default="no status selected",
+        help_text="text_type"
+    )
 
     def __str__(self):
         return self.doc_name
