@@ -68,7 +68,7 @@ footer {
     background-color: #1F2833;
     height: 50px;
     bottom: 0;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 .description {
     color: #FFFFFF;
@@ -77,4 +77,8 @@ footer {
 
 .btn a{
     color: #000000;
+}
+
+.form-error {
+    color: 	#FFA07A;
 }

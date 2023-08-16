@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import User, Notes
+from .models import Notes
+from django.contrib.auth.models import User
 # Register your models here.
-admin.site.register(User)
+
 admin.site.register(Notes)
 
 

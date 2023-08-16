@@ -3,10 +3,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}NODA{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
+    {% block header %}
     <div class="header">
         <div class="header__section">
             <div class="header__item headerlogo">
@@ -15,9 +16,20 @@
             <div class="header__item headerButton"><a href="#"></a></div>
         </div>
         <div class="header__section">
-            <div class="header__item headerButton"><a href="#">Вход</a></div>
+            <div class="header__item headerButton">
+                    <ul class="header-nav">
+                        {% if user.is_authenticated %}
+                        <li>{{ user.get_username }}</li>
+                        <li><a href="{% url 'logout' %}?next={{request.path}}">Выйти</a></li>
+                        {% else %}
+                        <li><a href="{% url 'login' %}?next={{request.path}}">Войти</a></li>
+                        <li><a href="{% url 'register' %}?next={{request.path}}">Зарегистрироваться</a></li>
+                        {% endif %}
+                    </ul>
+            </div>
         </div>
     </div>
+    {% endblock %}
     {% block content %}
     {% endblock %}
     <main>
