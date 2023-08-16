@@ -134,6 +134,10 @@ EMAIL_HOST_USER = 'NODA-T-NODA@yandex.ru'
 EMAIL_HOST_PASSWORD = 'eouelrzrnnhoklye'
 DEFAULT_FORM_EMAIL = 'NODA-T-NODA@yandex.ru'
 
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
