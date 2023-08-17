@@ -1,0 +1,15 @@
+
+
+{% extends 'main/base_index.html' %}
+{% block content %}
+<div class="upload-notes">
+    <h2>Отправить файл на проверку</h2>
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+    <button type="submit">Загрузка</button>
+    </form>
+</div>
+
+{% endblock %}
