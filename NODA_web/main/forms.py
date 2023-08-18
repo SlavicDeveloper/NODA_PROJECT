@@ -36,10 +36,11 @@ class RegisterUserForm(UserCreationForm):
 
 
 class ToValidateNotesForm(forms.ModelForm):
-    doc_name = forms.CharField(required=False)
-
+    doc_name = forms.CharField(label='Название документа',required=False)
+    doc_file = forms.FileField(label='Загрузите файл в формате doc')
+    category_status = forms.CharField(label='Выбирите категорию')
 
     class Meta:
         model = Notes
         fields = '__all__'
-        # exclude = ()
+        exclude = ('node_id','state_status',)

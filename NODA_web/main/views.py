@@ -43,6 +43,8 @@ def ToValidateNotes(request):
     if request.method == "POST":
         form = ToValidateNotesForm(request.POST, request.FILES)
         if form.is_valid():
+            noda = form.save(commit=False)
+            noda.node_id = request.user
             if not form.data["doc_name"]:
                 error = "Поле 'Название документа' обязательно к заполнению"
             else:
