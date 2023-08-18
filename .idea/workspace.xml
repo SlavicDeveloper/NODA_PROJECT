@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0af3195-29a0-4077-a6a3-959627752e16" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NODA_web/NODA_web/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/NODA_web/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NODA_web/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NODA_web/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NODA_web/main/templates/main/notes_preview.html" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/templates/main/notes_preview.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NODA_web/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NODA_web/main/templates/main/validate_notes.html" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/templates/main/validate_notes.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NODA_web/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/NODA_web/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
