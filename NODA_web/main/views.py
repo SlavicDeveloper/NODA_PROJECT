@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView
 from .models import Notes
 from django.urls import reverse_lazy
 from .forms import RegisterUserForm, ToValidateNotesForm
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -36,15 +37,18 @@ class RegisterUser(CreateView):
 #     success_url = reverse_lazy('notes')
 #     template_name = 'main/validate_notes.html'
 
-
+@login_required
 def ToValidateNotes(request):
-    if request.method == 'GET':
-        context = {'form' : ToValidateNotesForm()}
-        return render(request, 'main/validate_notes.html', context)
+    error = ''
     if request.method == "POST":
-        notes = Notes(node_id=request.user)
-        form = ToValidateNotesForm(data=request.POST, instance=notes)
+        form = ToValidateNotesForm(request.POST, request.FILES)
         if form.is_valid():
-            form.instance.node_id = request.user
-            form.save()
-            return render(request, 'main/suc.html')
+            if not form.data["doc_name"]:
+                error = "Поле 'Название документа' обязательно к заполнению"
+            else:
+                form.save()
+                return redirect("home")
+    else:
+        form = ToValidateNotesForm()
+
+    return render(request, 'main/validate_notes.html', {'form': form, "error": error})

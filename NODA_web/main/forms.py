@@ -15,13 +15,12 @@ class RegisterUserForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
-
     def clean_email(self):
         """Reject usernames that differ only in case."""
         email = self.cleaned_data.get("email")
         if (
-            email
-            and self._meta.model.objects.filter(email__iexact=email).exists()
+                email
+                and self._meta.model.objects.filter(email__iexact=email).exists()
         ):
             self._update_errors(
                 ValidationError(
@@ -37,8 +36,10 @@ class RegisterUserForm(UserCreationForm):
 
 
 class ToValidateNotesForm(forms.ModelForm):
+    doc_name = forms.CharField(required=False)
+
 
     class Meta:
         model = Notes
         fields = '__all__'
-        exclude = ('node_id','state_status',)
+        # exclude = ()
