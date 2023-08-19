@@ -36,9 +36,17 @@ class RegisterUserForm(UserCreationForm):
 
 
 class ToValidateNotesForm(forms.ModelForm):
-    doc_name = forms.CharField(label='Название документа',required=False)
+    CHOICES = [
+        ('soc', 'Социальные науки'),
+        ('gum', 'Гуманитарные науки'),
+        ('est', 'Естественные и точные науки'),
+        ('med', 'Медицинские науки'),
+        ('tech', 'Техника и технологии'),
+        ('selhoz', 'Сельскохозяйственные науки')
+    ]
+    doc_name = forms.CharField(label='Название документа')
     doc_file = forms.FileField(label='Загрузите файл в формате doc')
-    category_status = forms.CharField(label='Выбирите категорию')
+    category_status = forms.ChoiceField(choices=CHOICES, label='Выбирите категорию')
 
     class Meta:
         model = Notes
