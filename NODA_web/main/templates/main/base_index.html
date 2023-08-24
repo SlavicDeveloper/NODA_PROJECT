@@ -11,9 +11,8 @@
     <div class="header">
         <div class="header__section">
             <div class="header__item headerlogo">
-                <img src="{% static 'main/css/img/logo.png' %}" alt="Лого">
+                <a href="{% url 'home' %}"><img src="{% static 'main/css/img/logo.png' %}" alt="Лого"></a>
             </div>
-            <div class="header__item headerButton"><a href="#"></a></div>
         </div>
         <div class="header__section">
             <div class="header__item headerButton">
@@ -36,7 +35,7 @@
         <div class="sidebar">
             <div class="sidebar__section">
                 <div class="sidebar__item"><a href="#">Туториал</a></div>
-                <div class="sidebar__item"><a href="#">База Данных</a></div>
+                <div class="sidebar__item"><a href="{% url 'notes' %}">База Данных</a></div>
                 <div class="sidebar__item"><a href="#">Мероприятия</a></div>
                 <div class="sidebar__item"><a href="#">RIP</a></div>
             </div>
