@@ -1,63 +1,111 @@
 {% extends 'main/base_index.html' %}
+{% load static %}
 {% block content %}
-    <h1>База данных "МОДА"</h1>
-
-
-
+<div class="content">
+    <span class="container-header">
+        <h1>База данных "МОДА"</h1>
+        <button><a href="{% url 'validate' %}"><h3>Отправить на проверку текст</h3></a></button>
+    </span>
+    <div class="containers">
         {% if soc %}
+        <span class="container">
             <h2>Социальные науки</h2>
-                <ul>
-                    {% for el in soc %}
-                        {% if el.state_status == 'approve' %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-
+            <div class="cards">
+                {% for el in soc %}
+                {% if el.state_status == 'approve' %}
+                <a href="{{el.doc_file.url}}" class = 'card'>
+                    <span class="card">
+                        <img src="{% static 'main/css/img/doc.png' %}" alt="file" class="card">
+                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                    </span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </span>
         {% endif %}
-
         {% if gum %}
+        <span class="container">
             <h2>Гуманитарные науки</h2>
-                <ul>
-                    {% for el in gum %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                    {% endfor %}
-                </ul>
+            <div class="cards">
+                {% for el in gum %}
+                {% if el.state_status == 'approve' %}
+                <a href="{{el.doc_file.url}}" class = 'card'>
+                    <span class="card">
+                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                    </span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </span>
         {% endif %}
-
         {% if est %}
+        <span class="container">
             <h2>Естественные и точные науки</h2>
-                <ul>
-                    {% for el in est %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                    {% endfor %}
-                </ul>
+            <div class="cards">
+                {% for el in est %}
+                {% if el.state_status == 'approve' %}
+                <a href="{{el.doc_file.url}}" class = 'card'>
+                    <span class="card">
+                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                    </span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </span>
         {% endif %}
         {% if med %}
+        <span class="container">
             <h2>Медицинские науки</h2>
-                <ul>
-                    {% for el in med %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                    {% endfor %}
-                </ul>
+            <div class="cards">
+                {% for el in med %}
+                {% if el.state_status == 'approve' %}
+                <a href="{{el.doc_file.url}}" class = 'card'>
+                    <span class="card">
+                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                    </span>
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </span>
         {% endif %}
         {% if tech %}
+        <span class="container">
             <h2>Технологии и техника</h2>
-                <ul>
-                    {% for el in tech %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                    {% endfor %}
-                </ul>
-        {% endif %}
-        {% if selhoz %}
-            <h2>Сельскохозяйственные науки</h2>
-                <ul>
-                    {% for el in selhoz %}
-                        {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br>
-                    {% endfor %}
-                </ul>
-        {% endif %}
-
+            <div class="cards">
+                {% for el in tech %}
+                {% if el.state_status == 'approve' %}
+                <a href="{{el.doc_file.url}}" class = 'card'>
+                    <span class="card">
+                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                    </span>
+                </a>
+                {% endif %}
+                {% endfor %}
+        </div>
+    </span>
+    {% endif %}
+    {% if selhoz %}
+    <span class="container">
+        <h2>Сельскохозяйственные науки</h2>
+        <div class="cards">
+            {% for el in selhoz %}
+            {% if el.state_status == 'approve' %}
+            <a href="{{el.doc_file.url}}" class = 'card'>
+                <span class="card">
+                    <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
+                </span>
+            </a>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </span>
+    {% endif %}
+    </span>
+</div>
 {% endblock %}
 
 

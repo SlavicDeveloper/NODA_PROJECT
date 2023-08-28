@@ -1,15 +1,18 @@
-
-
 {% extends 'main/base_index.html' %}
 {% block content %}
-<div class="upload-notes">
-    <h2>Отправить файл на проверку</h2>
+<div class="from-container">
     <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Загрузка</button>
-    <span>{{error}}</span>
+        <h2>Отправить файл на проверку</h2>
+        {% csrf_token %}
+        {% for f in form %}
+        <div class="form-field input-right">
+            <label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+        </div>
+        {% endfor %}
+        <div class="form-field input-right">
+            <button type="submit">Загрузка</button>
+        </div>
     </form>
 </div>
-
 {% endblock %}
