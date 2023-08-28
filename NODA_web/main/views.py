@@ -49,7 +49,7 @@ def ToValidateNotes(request):
                 error = "Поле 'Название документа' обязательно к заполнению"
             else:
                 form.save()
-                return redirect("home")
+                return redirect("notes")
     else:
         form = ToValidateNotesForm()
 
