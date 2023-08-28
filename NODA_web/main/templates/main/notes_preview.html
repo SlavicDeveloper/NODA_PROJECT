@@ -1,9 +1,22 @@
 {% extends 'main/base_index.html' %}
 {% block content %}
+<<<<<<< Updated upstream
     <h1>База данных "МОДА"</h1>
     {% if soc %}
         <h2>Социальные науки</h2>
             <ul>
+=======
+
+    <span class="container-header">
+        <h1>База данных "МОДА"</h1>
+        <button><a href="{% url 'validate' %}"><h3>Отправить на проверку текст</h3></a></button>
+    </span>
+    <div class="containers">
+        {% if soc %}
+        <span class="container">
+            <h2>Социальные науки</h2>
+            <div class="cards">
+>>>>>>> Stashed changes
                 {% for el in soc %}
                     {{el.doc_name}} - <a href="{{el.doc_file.url}}" class = 'btn btn-primary'>Ссылка на скачивание</a><br></br>
                 {% endfor %}
@@ -49,6 +62,11 @@
                 {% endfor %}
             </ul>
     {% endif %}
+<<<<<<< Updated upstream
+=======
+    </span>
+
+>>>>>>> Stashed changes
 {% endblock %}
 
 
