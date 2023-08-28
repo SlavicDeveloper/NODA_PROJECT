@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from .models import Notes
+
 
 class RegisterUserForm(UserCreationForm):
     username = forms.CharField(label='Логин', widget=forms.TextInput(attrs={'class': 'form-input'}))
@@ -13,22 +15,35 @@ class RegisterUserForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
-
     def clean_email(self):
-        """Reject usernames that differ only in case."""
-        email = self.cleaned_data.get("email")
-        if (
-            email
-            and self._meta.model.objects.filter(email__iexact=email).exists()
-        ):
-            self._update_errors(
-                ValidationError(
-                    {
-                        "email": self.instance.unique_error_message(
-                            self._meta.model, ["email"]
-                        )
-                    }
-                )
-            )
-        else:
-            return email
+        email = self.cleaned_data['email']
+
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('Пользователь с таким адресом электронной почты уже существует.')
+        return email
+
+
+class ToValidateNotesForm(forms.ModelForm):
+    CHOICES = [
+        ('soc', 'Социальные науки'),
+        ('gum', 'Гуманитарные науки'),
+        ('est', 'Естественные и точные науки'),
+        ('med', 'Медицинские науки'),
+        ('tech', 'Техника и технологии'),
+        ('selhoz', 'Сельскохозяйственные науки')
+    ]
+    doc_name = forms.CharField(label='Название документа')
+    doc_file = forms.FileField(label='Загрузите файл в формате docx или doc')
+    category_status = forms.ChoiceField(choices=CHOICES, label='Выберите категорию')
+
+    class Meta:
+        model = Notes
+        fields = '__all__'
+        exclude = ('node_id','state_status',)
+
+    def clean_doc_name(self):
+        doc_name = self.cleaned_data['doc_name']
+
+        if Notes.objects.filter(doc_name=doc_name).exists():
+            raise forms.ValidationError('Документ с таким именем уже существует. Пожалуйста, выберите другое название для документа!')
+        return doc_name

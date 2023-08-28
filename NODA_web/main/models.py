@@ -29,11 +29,23 @@ class Notes(models.Model):
         ('selhoz', 'Сельскохозяйственные науки')
     )
 
+    STATE_STATUS = (
+        ('approve', 'Проверенно'),
+        ('disapprove', 'Не проверено')
+    )
+
     category_status = models.CharField(
         max_length=255,
         choices=CATEGORY_STATUS,
         blank=True,
         default="no status selected",
+        help_text="text_type"
+    )
+    state_status = models.CharField(
+        max_length=255,
+        choices=STATE_STATUS,
+        blank=True,
+        default="disapprove",
         help_text="text_type"
     )
 
@@ -42,3 +54,4 @@ class Notes(models.Model):
 
     # def get_absolute_file_upload_url(self):
     #     return MEDIA_URL + self.doc_file.url
+
