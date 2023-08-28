@@ -11,8 +11,9 @@
     <div class="header">
         <div class="header__section">
             <div class="header__item headerlogo">
-                <a href="{% url 'home' %}"><img src="{% static 'main/css/img/logo.png' %}" alt="Лого"></a>
+                <img src="{% static 'main/css/img/logo.png' %}" alt="Лого">
             </div>
+            <div class="header__item headerButton"><a href="#"></a></div>
         </div>
         <div class="header__section">
             <div class="header__item headerButton">
@@ -22,25 +23,25 @@
                         <li><a href="{% url 'logout' %}?next={{request.path}}">Выйти</a></li>
                         {% else %}
                         <li><a href="{% url 'login' %}?next={{request.path}}">Войти</a></li>
-                        <li><a href="{% url 'register' %}?next={{request.path}}">Регистрация</a></li>
+                        <li><a href="{% url 'register' %}?next={{request.path}}">Зарегистрироваться</a></li>
                         {% endif %}
                     </ul>
             </div>
         </div>
     </div>
     {% endblock %}
+    {% block content %}
+    {% endblock %}
     <main>
         <div class="sidebar">
             <div class="sidebar__section">
                 <div class="sidebar__item"><a href="#">Туториал</a></div>
-                <div class="sidebar__item"><a href="{% url 'notes' %}">База Данных</a></div>
+                <div class="sidebar__item"><a href="#">База Данных</a></div>
                 <div class="sidebar__item"><a href="#">Мероприятия</a></div>
                 <div class="sidebar__item"><a href="#">RIP</a></div>
             </div>
         </div>
     </main>
-    {% block content %}
-    {% endblock %}
     <footer>
     <p class="description">Контакты: info@example.com</p>
     <p class="description">Дополнительная информация</p>
