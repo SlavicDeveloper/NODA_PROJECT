@@ -1,3 +1,19 @@
+:root {
+    --dark: #16161a;
+    --gray: #87868d;
+    --accent: #d69b8f;
+    --dark_accent: #bd887e;
+    --coaccent: #B98B82;
+}
+
+/* :root {
+    --dark: #1F0812;
+    --gray: #37515f;
+    --accent: #F3B3A6;
+    --coaccent: #B98B82;
+} */
+
+
 * {
 	margin: 0;
 }
@@ -11,7 +27,7 @@ h1, h2 {
 }
 
 a, p, li, label {
-	color: #000;
+	color: var(--dark);
 	text-decoration: none;
     font-family: 'Open Sans', sans-serif;
 }
@@ -23,7 +39,7 @@ a, p, li, label {
 .header {
 	display: flex;
 	justify-content: space-between;
-	background: #0B0C10;
+	background: var(--dark);
 	color: #fff;
     height: 10vh;
     padding: 0 4vw;
@@ -50,8 +66,13 @@ a, p, li, label {
 
 .header-nav a {
     padding: 8px 30px;
-    background-color: #FF9900;
+    /* background-color: #FF9900; */
+    background-color: var(--accent);
     border-radius: 7px;
+}
+
+.header-nav a:hover {
+    background-color: var(--dark_accent);
 }
 
 .headerButton a {
@@ -69,10 +90,10 @@ main {
 }
 
 .sidebar {
-    height: 83vh;
-    width: 12vw;
+    min-height: 83vh;
+    width: 14vw;
     border-right: 1px solid #D7DBDD;
-    background-color: #45A29E;
+    background-color: var(--gray);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +101,7 @@ main {
 
 .sidebar a {
 	color: #0B0C10;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .sidebar__section {
@@ -87,12 +109,12 @@ main {
 }
 
 .sidebar__item {
+    color: white;
     cursor: pointer;
     font-size: 20px;
     padding: 10px 0 10px 25px;
     margin: 5px 0;
     border-radius: 7px;
-    color: white;
 }
 
 .sidebar__item:hover {
@@ -104,7 +126,8 @@ footer {
     width: 100vw;
     display: flex;
     justify-content: center;
-    background-color: #1F2833;
+    /* background-color: #1F2833; */
+    background-color: var(--dark);
     height: 7vh;
     align-items: center;
 }
@@ -115,7 +138,7 @@ footer {
 }
 
 .btn a {
-	color: #000000;
+	color: var(--dark);
 }
 
 .form-error {
@@ -129,6 +152,7 @@ footer {
 }
 
 body {
+    overflow-x: hidden;
 	font-size: 17px;
 	line-height: 1.4;
 }
