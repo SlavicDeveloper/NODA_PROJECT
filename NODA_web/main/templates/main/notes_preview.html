@@ -7,39 +7,44 @@
         <a class="button" href="{% url 'validate' %}">Отправить на проверку текст</a>
     </span>
     <div class="containers">
+
         {% if soc %}
-        <span class="container">
+        <div class="container">
             <h2>Социальные науки</h2>
             <div class="cards">
                 {% for el in soc %}
                 {% if el.state_status == 'approve' %}
-                <a href="{{el.doc_file.url}}" class = 'card'>
-                    <span class="card">
-                        <img src="{% static 'main/css/img/doc.png' %}" alt="file" class="card">
-                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
-                    </span>
+                <a href="{{el.doc_file.url}}" target="_blank">
+                    <div class="card">
+                        <img src="{% static 'main/css/img/doc.png' %}" alt="file">
+                        <h4 class="card-title">{{el.doc_name}}</h4>
+                    </div>
                 </a>
                 {% endif %}
                 {% endfor %}
             </div>
-        </span>
+        </div>
         {% endif %}
+
         {% if gum %}
-        <span class="container">
+        <div class="container">
             <h2>Гуманитарные науки</h2>
             <div class="cards">
                 {% for el in gum %}
                 {% if el.state_status == 'approve' %}
-                <a href="{{el.doc_file.url}}" class = 'card'>
-                    <span class="card">
-                        <span class="card-header"><h3 class="card-title">{{el.doc_name}}</h3></span>
-                    </span>
+                <a href="{{el.doc_file.url}}" target="_blank">
+                    <div class="card">
+                        <img src="{% static 'main/css/img/doc.png' %}" alt="file">
+                        <h4 class="card-title">{{el.doc_name}}</h4>
+                    </div>
                 </a>
                 {% endif %}
                 {% endfor %}
             </div>
-        </span>
+        </div>
         {% endif %}
+
+
         {% if est %}
         <span class="container">
             <h2>Естественные и точные науки</h2>
