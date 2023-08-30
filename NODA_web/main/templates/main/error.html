@@ -1,0 +1,9 @@
+{% extends 'main/base_index.html' %}
+{% load static %}
+{% block content %}
+<form method="post">
+  <h1>Страницы с адресом {{ path }} не существует</h1>
+  <div class="space"></div>
+  <a href="{% url 'home' %}" class="button"> Вернуться на главную</a>
+</form>
+{% endblock %}

@@ -6,7 +6,6 @@ from .forms import RegisterUserForm, ToValidateNotesForm
 from django.contrib.auth.decorators import login_required
 
 
-
 def NotesPreview(request):
     lst_of_names = ["soc", "gum", "est", "med", "tech", "selhoz"]
 
@@ -19,6 +18,10 @@ def NotesPreview(request):
 
 def index(request):
     return render(request, 'main/index.html')
+
+
+def page_not_found(request, exception):
+    return render(request, 'main/error.html', {'path': request.path}, status=404)
 
 
 class RegisterUser(CreateView):
