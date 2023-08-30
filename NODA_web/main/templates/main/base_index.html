@@ -5,42 +5,44 @@
     <meta charset="UTF-8">
     <title>{% block title %}NODA{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+    <link rel="icon" href="{% static 'main/css/img/logo.png' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Open+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     {% block header %}
     <div class="header">
         <div class="header__section">
             <div class="header__item headerlogo">
-                <a href="{% url 'home' %}"><img src="{% static 'main/css/img/logo.png' %}" alt="Лого"></a>
+                <a href="{% url 'home' %}"><img src="{% static 'main/css/img/transparent_logo.png' %}" alt="Лого"></a>
             </div>
         </div>
-        <div class="header__section">
-            <div class="header__item headerButton">
-                    <ul class="header-nav">
-                        {% if user.is_authenticated %}
-                        <li>{{ user.get_username }}</li>
-                        <li><a href="{% url 'logout' %}?next={{request.path}}">Выйти</a></li>
-                        {% else %}
-                        <li><a href="{% url 'login' %}?next={{request.path}}">Войти</a></li>
-                        <li><a href="{% url 'register' %}?next={{request.path}}">Регистрация</a></li>
-                        {% endif %}
-                    </ul>
-            </div>
+        <div class="header__section header-nav">
+            {% if user.is_authenticated %}
+            <p>{{ user.get_username }}</p>
+            <a href="{% url 'logout' %}?next={{request.path}}">Выйти</a>
+            {% else %}
+            <a href="{% url 'login' %}?next={{request.path}}">Войти</a>
+            <a href="{% url 'register' %}?next={{request.path}}">Регистрация</a>
+            {% endif %}
         </div>
     </div>
     {% endblock %}
     <main>
         <div class="sidebar">
             <div class="sidebar__section">
-                <div class="sidebar__item"><a href="#">Туториал</a></div>
-                <div class="sidebar__item"><a href="{% url 'notes' %}">База Данных</a></div>
-                <div class="sidebar__item"><a href="#">Мероприятия</a></div>
-                <div class="sidebar__item"><a href="#">RIP</a></div>
+                <a href="#"><div class="sidebar__item">Туториал</div></a>
+                <a href="{% url 'notes' %}"><div class="sidebar__item">База Данных</div></a>
+                <a href="#"><div class="sidebar__item">Мероприятия</div></a>
+                <a href="#"><div class="sidebar__item">RIP</div></a>
             </div>
         </div>
+        {% block content %}
+        {% endblock %}
     </main>
-    {% block content %}
-    {% endblock %}
     <footer>
     <p class="description">Контакты: info@example.com</p>
     <p class="description">Дополнительная информация</p>
