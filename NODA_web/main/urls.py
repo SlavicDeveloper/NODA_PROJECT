@@ -9,6 +9,7 @@ urlpatterns = [
     path('notes/', views.NotesPreview, name="notes"),
     path('register/', RegisterUser.as_view(), name='register'),
     path('notes/validate/', ToValidateNotes, name='validate'),
+    path('guide/', views.guide, name='guide'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
