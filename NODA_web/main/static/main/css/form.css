@@ -26,7 +26,7 @@ form h3 {
 form p {
     text-align: center;
 }
-input,
+.reset a, input,
 button, select {
 	padding: 0.5em;
 	font-size: 0.875em;

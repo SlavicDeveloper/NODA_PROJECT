@@ -45,8 +45,10 @@ h1, h2, h3, h4 {
 h1, h2 {
     margin-bottom: 2rem;
 }
-
-a, p, li, label {
+.form-error {
+	color: #FFA07A;
+}
+a, p, label {
 	color: var(--dark);
 	text-decoration: none;
     font-family: 'Open Sans', sans-serif;
@@ -159,9 +161,6 @@ footer {
 	color: var(--dark);
 }
 
-.form-error {
-	color: #FFA07A;
-}
 
 body {
     overflow-x: hidden;
@@ -280,3 +279,4 @@ body {
 	padding: 0 3.5%;
 	margin: 0;
 }
+

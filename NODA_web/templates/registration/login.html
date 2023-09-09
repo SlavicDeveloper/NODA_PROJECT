@@ -3,14 +3,11 @@
 {% block content %}
 
 <form method="post" action="{% url 'login' %}">
-{% if form.errors %}
-    <h3>Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</h3>
-    <div class="space"></div>
-{% endif %}
+
 
 {% if next %}
     {% if user.is_authenticated %}
-        <h3>У вашего аккаунта нет доступа к этой странице. Для продолжения,
+        <h3 class="form-error">У вашего аккаунта нет доступа к этой странице. Для продолжения,
             пожалуйста, войдите с учетной записью, которая имеет доступ.</h3>
     {% else %}
         <h3>Пожалуйста, войдите, чтобы увидеть эту страницу.</h3>
@@ -31,14 +28,18 @@
     <td>{{ form.password }}</td>
 </tr>
 </table>
-
-<div class="space"></div>
+{% if form.errors %}
+    <li class="form-error">Ваше имя пользователя и пароль не совпадают. Пожалуйста, попробуйте еще раз.</li>
+    <div class="space"></div>
+{% endif %}
+    <div class="space"></div>
     <button type="submit">Войти</button>
     <input type="hidden" name="next" value="{{ next }}" />
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <div class="space"></div>
-<p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+<p><a href="{% url 'password_reset' %}" class="reset">Забыли пароль?</a></p>
+
 </form>
 
 

@@ -17,8 +17,8 @@ def NotesPreview(request):
 
 
 def index(request):
-    return render(request, 'main/index.html')
-
+    return render(request, 'main/guide.html')
+    # return render(request, 'main/index.html')
 
 def page_not_found_view(request, exception):
     return render(request, '404.html', status=404)
