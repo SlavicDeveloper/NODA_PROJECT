@@ -113,7 +113,7 @@ main {
 
 .sidebar {
     min-height: 83vh;
-    width: 14vw;
+    width: 16vw;
     border-right: 1px solid #D7DBDD;
     background-color: var(--gray);
 }
@@ -279,4 +279,11 @@ body {
 	padding: 0 3.5%;
 	margin: 0;
 }
-
+.header-span {
+     text-align: center;
+}
+iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

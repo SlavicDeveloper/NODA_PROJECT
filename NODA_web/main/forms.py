@@ -38,7 +38,7 @@ class ToValidateNotesForm(forms.ModelForm):
     class Meta:
         model = Notes
         fields = '__all__'
-        exclude = ('node_id','state_status',)
+        exclude = ('node_id', 'state_status', 'norm_status')
 
     def clean_doc_name(self):
         doc_name = self.cleaned_data['doc_name']

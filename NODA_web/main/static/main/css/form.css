@@ -19,6 +19,21 @@ form {
     margin: auto;
     display: grid;
 }
+.guide {
+    width: 65vw;
+    padding: 60px;
+}
+.guide p, h3, h1{
+    text-align: left;
+}
+.guide img {
+    width: 70%;
+    height: 70%;
+    padding: 0;
+    margin-top: 20px;
+    margin-left: 8vw;
+}
+
 form h3 {
     text-align: center;
 }

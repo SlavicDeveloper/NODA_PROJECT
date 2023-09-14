@@ -28,25 +28,34 @@ class Notes(models.Model):
         ('tech', 'Техника и технологии'),
         ('selhoz', 'Сельскохозяйственные науки')
     )
-
     STATE_STATUS = (
         ('approve', 'Проверенно'),
         ('disapprove', 'Не проверено')
     )
-
+    NORMAL_STATUS = (
+        ('norm', 'нормальный'),
+        ('test', 'тестовый'),
+    )
+    norm_status = models.CharField(
+        max_length=255,
+        choices=NORMAL_STATUS,
+        blank=True,
+        default='test',
+        help_text='text_type',
+    )
     category_status = models.CharField(
         max_length=255,
         choices=CATEGORY_STATUS,
         blank=True,
         default="no status selected",
-        help_text="text_type"
+        help_text="text_type",
     )
     state_status = models.CharField(
         max_length=255,
         choices=STATE_STATUS,
         blank=True,
         default="disapprove",
-        help_text="text_type"
+        help_text="text_type",
     )
 
     def __str__(self):
